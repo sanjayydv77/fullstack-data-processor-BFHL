@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/tickets';
+
+const API_URL = 'https://fullstack-data-processor-bfhl.onrender.com/tickets';
 
 function App() {
   const [tickets, setTickets] = useState([]);
