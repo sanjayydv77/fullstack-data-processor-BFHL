@@ -18,8 +18,10 @@ app.get('/', (req, res) => {
   res.json({ message: "Welcome to the DeskFlow Ticket Triage API" });
 });
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI)
+// Connect to MongoDB (with fallback to your Atlas Cluster URI)
+const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://sanjuydv7:Sanjay2026@cluster0.x5kuecw.mongodb.net/deskflow?retryWrites=true&w=majority";
+
+mongoose.connect(MONGO_URI)
   .then(() => {
     console.log("Successfully connected to MongoDB");
     app.listen(PORT, () => {
